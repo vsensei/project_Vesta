@@ -19,7 +19,6 @@ const ChatsScreen = ({navigation}) => {
                 uri: avatar,
               }}
             />
-
             <View style={chatsStyles.messageDataView}>
               <Text style={chatsStyles.boldText}>{name}</Text>
               <Text style={chatsStyles.paleText}>{message}</Text>
@@ -27,9 +26,11 @@ const ChatsScreen = ({navigation}) => {
             <View style={chatsStyles.messageInfoView}>
               <Text style={getTimeStyle(unreadNumber)}>{time}</Text>
               <View style={getUnreadNumberForView(unreadNumber)}>
-                <Text style={getUnreadNumberForText(unreadNumber)}>
-                  {unreadNumber}
-                </Text>
+                {unreadNumber ? (
+                  <Text style={getUnreadNumberForText(unreadNumber)}>
+                    {unreadNumber}
+                  </Text>
+                ) : null}
               </View>
             </View>
           </View>
