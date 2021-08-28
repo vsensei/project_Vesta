@@ -34,16 +34,16 @@ const chatsStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
   unreadNumberView: {
-    width: 20,
-    height: 20,
+    width: 24,
+    height: 24,
     alignSelf: 'center',
     justifyContent: 'center',
     backgroundColor: 'purple',
-    borderRadius: 10,
+    borderRadius: 12,
   },
   unreadNumberViewEmpty: {
-    width: 20,
-    height: 20,
+    width: 24,
+    height: 24,
   },
   unreadNumber: {
     color: 'white',

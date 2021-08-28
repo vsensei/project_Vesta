@@ -28,7 +28,7 @@ const ChatsScreen = ({navigation}) => {
               <View style={getUnreadNumberForView(unreadNumber)}>
                 {unreadNumber ? (
                   <Text style={getUnreadNumberForText(unreadNumber)}>
-                    {unreadNumber}
+                    {unreadNumber < 100 ? unreadNumber : '99+'}
                   </Text>
                 ) : null}
               </View>
