@@ -3,9 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ScreenNames from './src/screens/screens.constants';
 import {getFirstLetterCapitalizedString} from './src/utils/strings.utils';
-import HomeScreen from './src/screens/home.screen';
-import ProfileScreen from './src/screens/profile.screen';
-import ChatsScreen from './src/screens/chats.screen';
+import HomeScreen from './src/screens/home/home.screen';
+import ProfileScreen from './src/screens/profile/profile.screen';
+import ChatsScreen from './src/screens/chats/chats.screen';
 
 const Stack = createNativeStackNavigator();
 
