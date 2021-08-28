@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create({
+const chatsStyles = StyleSheet.create({
   container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
   horizontalView: {
     height: 70,
@@ -63,18 +63,20 @@ const styles = StyleSheet.create({
 });
 
 export const getTimeStyle = unreadNumber =>
-  unreadNumber ? styles.time : styles.paleText;
+  unreadNumber ? chatsStyles.time : chatsStyles.paleText;
 
 export const getUnreadNumberForView = unreadNumber =>
-  unreadNumber ? styles.unreadNumberView : styles.unreadNumberViewEmpty;
+  unreadNumber
+    ? chatsStyles.unreadNumberView
+    : chatsStyles.unreadNumberViewEmpty;
 
 export const getUnreadNumberForText = unreadNumber => {
   if (unreadNumber < 10) {
-    return styles.unreadNumber;
+    return chatsStyles.unreadNumber;
   }
   return unreadNumber < 100
-    ? styles.unreadNumberExtended
-    : styles.unreadNumberMax;
+    ? chatsStyles.unreadNumberExtended
+    : chatsStyles.unreadNumberMax;
 };
 
-export default styles;
+export default chatsStyles;
