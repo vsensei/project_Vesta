@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, Button, View} from 'react-native';
 import homeStyles from './home.styles';
-import ScreenNames from '../screens.constants';
-import {getFirstLetterCapitalizedString} from '../../utils/strings.utils';
+import ScreenNames from 'screens/screens.constants';
+import {getFirstLetterCapitalizedString} from 'utils/strings.utils';
 
 const HomeScreen = ({navigation}) => {
   return (
