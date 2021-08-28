@@ -1,7 +1,5 @@
 import React from 'react';
 import {Text, StyleSheet, ScrollView, Image, View} from 'react-native';
-import ScreenNames from './screens.constants';
-import {getFirstLetterCapitalizedString} from '../utils/strings.utils';
 
 const ChatsScreen = ({navigation}) => {
   const messagesDummy = {
@@ -17,14 +15,14 @@ const ChatsScreen = ({navigation}) => {
       name: 'Test Author #2',
       avatar:
         'https://images.unsplash.com/photo-1612151855475-877969f4a6cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGQlMjBpbWFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=100&q=80',
-      message: 'Test message #2',
+      message: 'Test answer #2',
       time: '22:22',
       unreadNumber: 1,
     },
     3: {
       name: 'Test Author #3',
       avatar: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg',
-      message: 'Test message #3',
+      message: 'Test answer #3',
       time: '11:11',
       unreadNumber: 10,
     },
@@ -32,17 +30,32 @@ const ChatsScreen = ({navigation}) => {
       name: 'Test Author #4',
       avatar:
         'https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg',
-      message: 'Test message #4',
+      message: 'Test answer #4',
       time: '22:22',
       unreadNumber: 22,
     },
     5: {
       name: 'Test Author #5',
       avatar: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
-      message: 'Test message #5',
+      message: 'Test answer #5',
       time: '10:10',
       unreadNumber: '99+',
     },
+  };
+
+  const getTimeStyle = unreadNumber =>
+    unreadNumber ? styles.time : styles.paleText;
+
+  const getUnreadNumberForView = unreadNumber =>
+    unreadNumber ? styles.unreadNumberView : styles.unreadNumberViewEmpty;
+
+  const getUnreadNumberForText = unreadNumber => {
+    if (unreadNumber < 10) {
+      return styles.unreadNumber;
+    }
+    return unreadNumber < 100
+      ? styles.unreadNumberExtended
+      : styles.unreadNumberMax;
   };
 
   return (
@@ -62,9 +75,11 @@ const ChatsScreen = ({navigation}) => {
               <Text style={styles.paleText}>{message}</Text>
             </View>
             <View style={styles.messageInfoView}>
-              <Text style={styles.time}>{time}</Text>
-              <View style={styles.unreadNumberView}>
-                <Text style={styles.unreadNumber}>{unreadNumber}</Text>
+              <Text style={getTimeStyle(unreadNumber)}>{time}</Text>
+              <View style={getUnreadNumberForView(unreadNumber)}>
+                <Text style={getUnreadNumberForText(unreadNumber)}>
+                  {unreadNumber}
+                </Text>
               </View>
             </View>
           </View>
@@ -115,11 +130,24 @@ const styles = StyleSheet.create({
     backgroundColor: 'purple',
     borderRadius: 10,
   },
+  unreadNumberViewEmpty: {
+    width: 20,
+    height: 20,
+  },
   unreadNumber: {
     color: 'white',
     textAlign: 'center',
+    fontSize: 14,
+  },
+  unreadNumberExtended: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 12,
+  },
+  unreadNumberMax: {
+    color: 'white',
+    textAlign: 'center',
     fontSize: 10,
-    //fontSize: 12,
   },
 });
 
