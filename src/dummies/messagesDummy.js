@@ -35,7 +35,7 @@ const messagesDummy = {
     avatar: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
     message: 'Test answer #5',
     time: '10:10',
-    unreadNumber: '99+',
+    unreadNumber: '101',
   },
 };
 
