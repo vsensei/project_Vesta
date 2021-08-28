@@ -5,6 +5,7 @@ import ScreenNames from './src/screens/screens.constants';
 import {getFirstLetterCapitalizedString} from './src/utils/strings.utils';
 import HomeScreen from './src/screens/home.screen';
 import ProfileScreen from './src/screens/profile.screen';
+import ChatsScreen from './src/screens/chats.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,10 @@ const screens = [
   {
     key: getFirstLetterCapitalizedString(ScreenNames.PROFILE),
     component: ProfileScreen,
+  },
+  {
+    key: getFirstLetterCapitalizedString(ScreenNames.CHATS),
+    component: ChatsScreen,
   },
 ];
 
