@@ -16,15 +16,14 @@ const ChatsScreen = ({navigation}) => {
     2: {
       name: 'Test Author #2',
       avatar:
-        'https://images.unsplash.com/photo-1612151855475-877969f4a6cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGQlMjBpbWFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
+        'https://images.unsplash.com/photo-1612151855475-877969f4a6cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGQlMjBpbWFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=100&q=80',
       message: 'Test message #2',
       time: '22:22',
       unreadNumber: 1,
     },
     3: {
       name: 'Test Author #3',
-      avatar:
-        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+      avatar: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg',
       message: 'Test message #3',
       time: '11:11',
       unreadNumber: 10,
@@ -32,10 +31,17 @@ const ChatsScreen = ({navigation}) => {
     4: {
       name: 'Test Author #4',
       avatar:
-        'https://images.unsplash.com/photo-1612151855475-877969f4a6cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGQlMjBpbWFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
+        'https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg',
       message: 'Test message #4',
       time: '22:22',
       unreadNumber: 22,
+    },
+    5: {
+      name: 'Test Author #5',
+      avatar: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+      message: 'Test message #5',
+      time: '10:10',
+      unreadNumber: '99+',
     },
   };
 
@@ -44,14 +50,13 @@ const ChatsScreen = ({navigation}) => {
       {Object.entries(messagesDummy).map(
         ([key, {name, avatar, message, time, unreadNumber}]) => (
           <View style={styles.horizontalView} key={key}>
-            <View>
-              <Image
-                style={styles.avatar}
-                source={{
-                  uri: avatar,
-                }}
-              />
-            </View>
+            <Image
+              style={styles.avatar}
+              source={{
+                uri: avatar,
+              }}
+            />
+
             <View style={styles.messageDataView}>
               <Text style={styles.boldText}>{name}</Text>
               <Text style={styles.paleText}>{message}</Text>
@@ -81,10 +86,9 @@ const styles = StyleSheet.create({
     borderBottomColor: 'grey',
     borderBottomWidth: 1,
   },
-  avatarView: {},
   avatar: {
-    borderWidth: 1.5,
-    borderColor: 'black',
+    borderWidth: 1.7,
+    borderColor: 'purple',
     borderRadius: 30,
     width: 60,
     height: 60,
@@ -105,13 +109,17 @@ const styles = StyleSheet.create({
   },
   unreadNumberView: {
     width: 20,
-    alignSelf: 'flex-end',
+    height: 20,
+    alignSelf: 'center',
+    justifyContent: 'center',
     backgroundColor: 'purple',
     borderRadius: 10,
   },
   unreadNumber: {
     color: 'white',
     textAlign: 'center',
+    fontSize: 10,
+    //fontSize: 12,
   },
 });
 
