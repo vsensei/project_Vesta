@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, ScrollView, Image, View} from 'react-native';
-import messagesDummy from '../dummies/messagesDummy';
+import messagesDummy from '../../dummies/messagesDummy';
 
 const ChatsScreen = ({navigation}) => {
   const getTimeStyle = unreadNumber =>
