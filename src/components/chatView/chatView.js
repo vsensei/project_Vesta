@@ -1,14 +1,18 @@
 import React from 'react';
-import {Text, Image, View} from 'react-native';
+import {Text, Image, View, Pressable} from 'react-native';
 import chatViewStyles, {
   getTimeStyle,
   getUnreadNumberForText,
   getUnreadNumberForView,
 } from './chatView.styles';
 
-const ChatView = ({id, value: {name, avatar, message, time, unreadNumber}}) => {
+const ChatView = ({
+  id,
+  handlePress,
+  value: {name, avatar, message, time, unreadNumber},
+}) => {
   return (
-    <View style={chatViewStyles.horizontalView}>
+    <Pressable style={chatViewStyles.horizontalView} onPress={handlePress}>
       <Image
         style={chatViewStyles.avatar}
         source={{
@@ -29,7 +33,7 @@ const ChatView = ({id, value: {name, avatar, message, time, unreadNumber}}) => {
           ) : null}
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
