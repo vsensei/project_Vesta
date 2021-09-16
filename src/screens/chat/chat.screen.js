@@ -1,5 +1,5 @@
-import React from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {ScrollView, Text, View, TextInput, Button} from 'react-native';
 import chatStyles from './chat.styles';
 import messagesDummy from 'dummies/messagesDummy';
 
@@ -10,15 +10,17 @@ const ChatScreen = ({route, navigation}) => {
   const isUsersMessage = (messageUserId, currentUserId) =>
     messageUserId.toString() === currentUserId;
 
+  useEffect(
+    () => navigation.setOptions({title: `Chat with ${name} (${id})`}),
+    [navigation, name, id],
+  );
+
   return (
-    <ScrollView>
-      <Text>
-        chat with {name} ({id})
-      </Text>
+    <View>
       {chat ? (
-        <ScrollView>
+        <ScrollView style={chatStyles.mainScroll}>
           {Object.entries(chat).map(([key, {userId, text}]) => (
-            <View>
+            <View key={key} style={chatStyles.message}>
               <View
                 style={
                   isUsersMessage(userId, id)
@@ -27,22 +29,21 @@ const ChatScreen = ({route, navigation}) => {
                 }>
                 {/*<Text>userId={userId}</Text>
           <Text>id={id}</Text>*/}
-                <Text
-                  style={
-                    isUsersMessage(userId, id)
-                      ? chatStyles.rightMessage
-                      : chatStyles.leftMessage
-                  }>
-                  {text}
-                </Text>
+                <Text>{text}</Text>
               </View>
             </View>
           ))}
         </ScrollView>
       ) : (
-        <Text>Chat is empty</Text>
+        <View style={chatStyles.emptyView}>
+          <Text>Chat is empty</Text>
+        </View>
       )}
-    </ScrollView>
+      <View style={chatStyles.textPanel}>
+        <TextInput style={chatStyles.textInput} />
+        <Button title="Send" />
+      </View>
+    </View>
   );
 };
 
